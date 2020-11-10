@@ -2,7 +2,7 @@
 
 ## Princípios básicos importantes
 
-- [ ] [Estrutura do Programa - Javascript](https://github.com/braziljs/eloquente-javascript/blob/master/chapters/02-estrutura-do-programa.md): Declaração de variáveis, estruturas condicionais, loops.
+- [x] [Estrutura do Programa - Javascript](https://github.com/braziljs/eloquente-javascript/blob/master/chapters/02-estrutura-do-programa.md): Declaração de variáveis, estruturas condicionais, loops.
 - [ ] [Funções](https://github.com/braziljs/eloquente-javascript/blob/master/chapters/03-funcoes.md)
 - [ ] [Estruturas de dados](https://github.com/braziljs/eloquente-javascript/blob/master/chapters/04-estruturas-de-dados.md)
 - [ ] [Funções de ordem superior](https://github.com/braziljs/eloquente-javascript/blob/master/chapters/05-funcoes-de-ordem-superior.md): Algumas funções importantes que são usadas no projeto e poderão vir a ser de grande utilidade.
