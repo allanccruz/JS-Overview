@@ -41,23 +41,21 @@ When you have that working, modify your program to print "FizzBuzz" for numbers 
 function ex_2() {
 
     let number = 1;
-    let counter = 0;
-
-    while (counter < 100) {
-        if (number % 3 == 0 && number % 5 == 0) {
+   
+    while (number <= 100) {
+        if (number % 3 === 0 && number % 5 === 0) {
             console.log("FizzBuzz");
         } 
-        else if (number % 3 == 0) {
+        else if (number % 3 === 0) {
             console.log("Fizz");
         } 
-        else if (number % 5 == 0) {
+        else if (number % 5 === 0) {
             console.log("Buzz");
         } 
         else {
             console.log(number);
         }
         number += 1;
-        counter += 1;
     }
 }
 
@@ -109,37 +107,33 @@ FAIL... essa forma não resolve a segunda parte do ex pq não é adaptavél pra 
 
 function ex_3() {
 
-    let a = " ";
-    let b = "#";
-    let c = "";
+    const blackspace = " ";
+    const whitespace = "#";
+    let board = "";
     let size = 8;
 
     for (let counter = 0; counter < size ; counter++) {
 
         for (let linelength = 0; linelength < size; linelength++) {
 
-            if (counter % 2 == 0) {
-                if (linelength % 2 == 0) {
-                    c = c + a;
-                }
-                else {
-                    c = c + b;
-                }
+            if (counter % 2 === 0) {
+                //Um jeito mais simples de escrever a ação condicional do "if". Lê-se: "linelength é par? se sim, board recebe blackspace. se não, recebe whitespace."
+                board += linelength % 2 === 0 ? blackspace : whitespace
             } 
 
             else {
-                if (linelength % 2 == 0) {
-                    c = c + b;
+                if (linelength % 2 === 0) {
+                    board += whitespace;
                 }
                 else {
-                    c = c + a;
+                    board += blackspace;
                 }
             }
         }
         
-        c = c + "\n";
+        board = board + "\n";
     }
-    console.log(c);
+    console.log(board);
 }
 
 ex_1()
