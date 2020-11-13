@@ -101,7 +101,6 @@ function ex_3() {
 }
 
 FAIL... essa forma não resolve a segunda parte do ex pq não é adaptavél pra qualquer tamanho de tabuleiro. Só aumentaria o numero de linhas. 9x8; 10x8; 11x8 ... etc.
-
 */
 
 
