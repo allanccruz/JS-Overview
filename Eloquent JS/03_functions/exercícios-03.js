@@ -79,3 +79,5 @@ function countChar(text, ch) {
 function countBs(text) {
     return countChar (text, "B");
 }
+//console.log(countBs("BBC"));
+//console.log(countChar("O rato roeu a roupa do rei de roma", "r"));
