@@ -27,7 +27,6 @@ function ex_1() {
 }
 
 
-
 /*
 Exercício 2: FizzBuzz
 
@@ -58,7 +57,6 @@ function ex_2() {
         number += 1;
     }
 }
-
 
 
 /* 

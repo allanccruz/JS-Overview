@@ -2,6 +2,9 @@
 
 -Array: [x, y, z]; ~guarda uma sequência de valores
 
+-Acessando o valor de um elemento de uma array:
+    array[posiçãoDoElemento]
+
 -Criando um objeto com diferentes propriedades:
     let object = {
         cor: "verde",
