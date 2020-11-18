@@ -71,11 +71,10 @@ function reverseArray(array){
     return newArray;
 }
 
-
 //Trocar o ultimo elemento com o primeiro, o antepenúltimo com o segundo, etc...
 function reverseArrayInPlace(array) {
     for (let numberOfSwaps = 0; numberOfSwaps < Math.floor((array.length/2)); numberOfSwaps++) {
-        //Salva o valor do elemento inicial que vai ser trocado numa vareável
+        //Salva o valor do elemento inicial que vai ser trocado numa variável
         let elementToSwap = array[numberOfSwaps];
         //Troca o valor do elemento inicial pelo que está na posição oposta a ele
         array[numberOfSwaps] = array[array.length - 1 - numberOfSwaps]
@@ -93,6 +92,7 @@ que o da primeira versão, que precisa percorrer a array inteira, e não será n
 array, pois as trocas são feitas dentro da array já existente.
 */
 
+
 /*
 Exercício 3: A list
 
@@ -104,3 +104,74 @@ or undefined when there is no such element.
 
 If you haven’t already, also write a recursive version of nth.
 */
+
+//RESPOSTA:
+
+function arrayToList(array) {
+    //Construir a lista de dentro pra fora.
+    let list = null;
+
+    for (let counter = array.length - 1; counter >= 0; counter--) {
+
+        let arrayElement = array[counter];
+
+        list = {
+            value: arrayElement, 
+            rest: list
+        }
+        console.log(list);
+    }
+    console.log("Resposta:");
+    return list;
+}
+//console.log(arrayToList([10, 20, 30]));
+
+function listToArray(list) {
+    let array = []
+
+    for (let layer=list; layer; layer=layer.rest) {
+        array.push(layer.value);
+        console.log(array)
+    }
+    console.log("Resposta:")
+    return array;
+}
+//console.log(listToArray(arrayToList([10, 20, 30])));
+
+function prepend(element, list) {
+    list = {
+        value: element,
+        rest: list
+    }
+    return list;
+}
+//console.log(prepend(10, prepend(20, null)));
+
+function nth (list, number) {
+    let counter = 0
+
+    for (let layer=list; layer; layer=layer.rest) {
+        
+        if (counter === number) {
+            return layer.value;
+        }
+        else {
+            counter++;
+        }
+    }
+}
+//console.log(nth(arrayToList([10, 20, 30]), 1));
+
+//Recursive version of nth:
+function recursiveNth(list, number) {
+    if (!list) {
+        return undefined;
+    }
+    else if (number == 0) {
+        return list.value;
+    }
+    else {
+        return recursiveNth(list.rest, number-1);
+    }
+}
+//console.log(recursiveNth(arrayToList([10, 20, 30]), 1));

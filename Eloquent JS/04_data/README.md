@@ -11,7 +11,7 @@
         tamanho: "grande"
     }; 
 
-   console.log(object["cor"]) OU console.log(object.cor) ~acessa a propriedade cor do objeto
+   console.log(object["cor"]) OU console.log(object.cor) ~acessa a propriedade cor do objeto e retorna verde
 
 -Adicionando e retirando valores no final de uma array: 
     let sequence = [1, 2, 3];
