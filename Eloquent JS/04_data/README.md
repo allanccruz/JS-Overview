@@ -39,3 +39,6 @@
 -Interagindo com elementos de uma array inteira usando loop for:
     for (let element of array) {
     }
+
+-Acessando o nome das propriedades de um objeto: 
+    Object.keys(nome do objeto)

@@ -15,37 +15,35 @@ The function call range(1, 10, 2) should return [1, 3, 5, 7, 9]. Make sure it al
 range(5, 2, -1) produces [5, 4, 3, 2].
 */
 
-//RESPOSTA: 
+//RESPOSTA:
 
 //Preferi não fazer com que a função funcione para valores de step negativos pois é contra-intuitivo.
 function range(start, end, step = 1) {
-    let array = []
+  let array = [];
 
-    if (start < end) {
-        for (counter = start; counter <= end; counter += step) {
-        array.push(counter);
-        }
+  if (start < end) {
+    for (counter = start; counter <= end; counter += step) {
+      array.push(counter);
     }
-    else {
-        for (counter = start; counter >= end; counter -= step) {
-        array.push(counter);
-        }
-   }
+  } else {
+    for (counter = start; counter >= end; counter -= step) {
+      array.push(counter);
+    }
+  }
 
-return array;
+  return array;
 }
 
 //Função que faz a soma de todos os elementos do array criado acima
 function sum(array) {
-    let total = 0
+  let total = 0;
 
-    for (let element of array) {
-        total += element;
-    }
+  for (let element of array) {
+    total += element;
+  }
 
-    return total;
+  return total;
 }
-
 
 /* 
 Exercício 2: Reversing an array
@@ -61,27 +59,35 @@ be useful in more situations? Which one runs faster?
 
 //RESPOSTA:
 
-function reverseArray(array){
-    let newArray = []
+function reverseArray(array) {
+  let newArray = [];
 
-    for (let arrayPosition = array.length - 1; arrayPosition >= 0; arrayPosition--) {
-        newArray.push(array[arrayPosition]);
-    }
+  for (
+    let arrayPosition = array.length - 1;
+    arrayPosition >= 0;
+    arrayPosition--
+  ) {
+    newArray.push(array[arrayPosition]);
+  }
 
-    return newArray;
+  return newArray;
 }
 
 //Trocar o ultimo elemento com o primeiro, o antepenúltimo com o segundo, etc...
 function reverseArrayInPlace(array) {
-    for (let numberOfSwaps = 0; numberOfSwaps < Math.floor((array.length/2)); numberOfSwaps++) {
-        //Salva o valor do elemento inicial que vai ser trocado numa variável
-        let elementToSwap = array[numberOfSwaps];
-        //Troca o valor do elemento inicial pelo que está na posição oposta a ele
-        array[numberOfSwaps] = array[array.length - 1 - numberOfSwaps]
-        //Troca o valor do elemento na posição oposta ao inicial pelo inicial
-        array[array.length - 1 - numberOfSwaps] = elementToSwap
-    }
-    return array;
+  for (
+    let numberOfSwaps = 0;
+    numberOfSwaps < Math.floor(array.length / 2);
+    numberOfSwaps++
+  ) {
+    //Salva o valor do elemento inicial que vai ser trocado numa variável
+    let elementToSwap = array[numberOfSwaps];
+    //Troca o valor do elemento inicial pelo que está na posição oposta a ele
+    array[numberOfSwaps] = array[array.length - 1 - numberOfSwaps];
+    //Troca o valor do elemento na posição oposta ao inicial pelo inicial
+    array[array.length - 1 - numberOfSwaps] = elementToSwap;
+  }
+  return array;
 }
 //console.log(reverseArrayInPlace(["A", "B", "C", "D", "E", "F"]))
 //console.log(reverseArray(["A", "B", "C", "D", "E", "F"]))
@@ -91,7 +97,6 @@ Acredito que a segunda versão seja mais útil em situações diferentes e seja 
 que o da primeira versão, que precisa percorrer a array inteira, e não será necessário alocar memória para criar uma nova 
 array, pois as trocas são feitas dentro da array já existente.
 */
-
 
 /*
 Exercício 3: A list
@@ -108,70 +113,118 @@ If you haven’t already, also write a recursive version of nth.
 //RESPOSTA:
 
 function arrayToList(array) {
-    //Construir a lista de dentro pra fora.
-    let list = null;
+  //Construir a lista de dentro pra fora.
+  let list = null;
 
-    for (let counter = array.length - 1; counter >= 0; counter--) {
+  for (let counter = array.length - 1; counter >= 0; counter--) {
+    let arrayElement = array[counter];
 
-        let arrayElement = array[counter];
-
-        list = {
-            value: arrayElement, 
-            rest: list
-        }
-        console.log(list);
-    }
-    console.log("Resposta:");
-    return list;
+    list = {
+      value: arrayElement,
+      rest: list,
+    };
+    console.log(list);
+  }
+  console.log("Resposta:");
+  return list;
 }
 //console.log(arrayToList([10, 20, 30]));
 
 function listToArray(list) {
-    let array = []
+  let array = [];
 
-    for (let layer=list; layer; layer=layer.rest) {
-        array.push(layer.value);
-        console.log(array)
-    }
-    console.log("Resposta:")
-    return array;
+  for (let layer = list; layer; layer = layer.rest) {
+    array.push(layer.value);
+    console.log(array);
+  }
+  console.log("Resposta:");
+  return array;
 }
 //console.log(listToArray(arrayToList([10, 20, 30])));
 
 function prepend(element, list) {
-    list = {
-        value: element,
-        rest: list
-    }
-    return list;
+  list = {
+    value: element,
+    rest: list,
+  };
+  return list;
 }
 //console.log(prepend(10, prepend(20, null)));
 
-function nth (list, number) {
-    let counter = 0
+function nth(list, number) {
+  let counter = 0;
 
-    for (let layer=list; layer; layer=layer.rest) {
-        
-        if (counter === number) {
-            return layer.value;
-        }
-        else {
-            counter++;
-        }
+  for (let layer = list; layer; layer = layer.rest) {
+    if (counter === number) {
+      return layer.value;
+    } else {
+      counter++;
     }
+  }
 }
 //console.log(nth(arrayToList([10, 20, 30]), 1));
 
 //Recursive version of nth:
 function recursiveNth(list, number) {
-    if (!list) {
-        return undefined;
-    }
-    else if (number == 0) {
-        return list.value;
-    }
-    else {
-        return recursiveNth(list.rest, number-1);
-    }
+  if (!list) {
+    return undefined;
+  } else if (number == 0) {
+    return list.value;
+  } else {
+    return recursiveNth(list.rest, number - 1);
+  }
 }
 //console.log(recursiveNth(arrayToList([10, 20, 30]), 1));
+
+/*
+Exercício 4: Deep comparison
+
+The == operator compares objects by identity. But sometimes you’d prefer to compare the values of their actual properties.
+
+Write a function deepEqual that takes two values and returns true only if they are the same value or are objects with the 
+same properties, where the values of the properties are equal when compared with a recursive call to deepEqual.
+
+To find out whether values should be compared directly (use the === operator for that) or have their properties compared, 
+you can use the typeof operator. If it produces "object" for both values, you should do a deep comparison. But you have to 
+take one silly exception into account: because of a historical accident, typeof null also produces "object".
+
+The Object.keys function will be useful when you need to go over the properties of objects to compare them.
+*/
+
+//RESPOSTA:
+
+function deepEqual(x, y) {
+    if (x === y) {
+        return true;
+    }
+
+    if (typeof x == "object" && x != null && typeof y == "object" && y != null) {
+        let xKeys = Object.keys(x);
+        let yKeys = Object.keys(y);
+
+        if (xKeys.length === yKeys.length) {
+            for (let counter = 0; counter < xKeys.length; counter++) {
+                if (!yKeys.includes(xKeys[counter])) {
+                    console.log(10)
+                    return false;
+                } 
+                else {
+                    /*Sem o JSON.stringify a comparação do if abaixo retorna true mesmo sendo objetos com valores iguais.
+                    A comparação no if verifica se a referência dos objetos é igual, ou seja, se é EXATAMENTE o mesmo objeto na memória.*/
+                     console.log(x[xKeys[counter]])
+                     console.log(y[yKeys[counter]])
+                    if (JSON.stringify(x[xKeys[counter]]) !== JSON.stringify(y[yKeys[counter]])) {
+                         console.log((x[xKeys[counter]] !== y[yKeys[counter]]))
+                         console.log(typeof x[xKeys[counter]])
+                         console.log(typeof y[yKeys[counter]])
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+    }
+    return false;
+}
+//let obj = { here: { is: "an" }, object: 2 };
+//console.log(deepEqual(obj, {here: {is: "an"}, object: 2}));
