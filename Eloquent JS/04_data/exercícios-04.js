@@ -194,37 +194,30 @@ The Object.keys function will be useful when you need to go over the properties 
 //RESPOSTA:
 
 function deepEqual(x, y) {
-    if (x === y) {
-        return true;
+  if (x === y) {
+    return true;
+  }
+
+  if (typeof x === "object" && x !== null && typeof y === "object" && y !== null) {
+    let validation = true;
+    const xKeys = Object.keys(x);
+    const yKeys = Object.keys(y);
+   
+    if (xKeys.length !== yKeys.length) {
+      validation = false;
     }
 
-    if (typeof x == "object" && x != null && typeof y == "object" && y != null) {
-        let xKeys = Object.keys(x);
-        let yKeys = Object.keys(y);
+    xKeys.forEach((key) => {
+      if (!deepEqual(x[key], y[key])) {
+        validation = false;
+      }
+    });
 
-        if (xKeys.length === yKeys.length) {
-            for (let counter = 0; counter < xKeys.length; counter++) {
-                if (!yKeys.includes(xKeys[counter])) {
-                    console.log(10)
-                    return false;
-                } 
-                else {
-                    /*Sem o JSON.stringify a comparação do if abaixo retorna true mesmo sendo objetos com valores iguais.
-                    A comparação no if verifica se a referência dos objetos é igual, ou seja, se é EXATAMENTE o mesmo objeto na memória.*/
-                     console.log(x[xKeys[counter]])
-                     console.log(y[yKeys[counter]])
-                    if (JSON.stringify(x[xKeys[counter]]) !== JSON.stringify(y[yKeys[counter]])) {
-                         console.log((x[xKeys[counter]] !== y[yKeys[counter]]))
-                         console.log(typeof x[xKeys[counter]])
-                         console.log(typeof y[yKeys[counter]])
-                        return false;
-                    }
-                }
-            }
-            return true;
-        }
-    }
-    return false;
+    return validation;
+  }
+
+  return false;
 }
-//let obj = { here: { is: "an" }, object: 2 };
-//console.log(deepEqual(obj, {here: {is: "an"}, object: 2}));
+
+//const obj = {here: { is: "an" }};
+//console.log(deepEqual(obj, {here: {is: "an"}}));
