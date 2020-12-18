@@ -6,8 +6,6 @@
         return parâmetro1 * parâmetro2;
 }
 
-OU
-
     const batata = (parâmetro1, parâmetro2) => {
         return parâmetro1 * parâmetro2;
 }
