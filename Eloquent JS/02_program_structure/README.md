@@ -10,20 +10,40 @@
         }
         ```
 
-- **Criar uma variável:** var, let e const (usar preferencialmente as duas últimas pois são variáveis de escopo local)
+- **Criar uma variável:** 
+    ```javascript
+        var //Variável de escopo global (evitar usar)
+        
+        let //Variável de escopo local
+        
+        const //Variável de escopo local usada para atribuir valores constantes
+    ```
 
 - **Ações condicionais:** 
-if (condição) {executa}
-    else {executa se a condição do if não for cumprida}
-
+    ```javascript
+        if (condição) {
+            //Executa o código daqui
+        } else {
+            //Executa o código daqui se a condição não for cumprida
+        }
+    ```
 - **While loops:**
-    while (condição) {executa}    ~usado para gerar loops de execução até a condição retornar "false"
+    ```javascript
+        while (condição) {
+            //Executa o código daqui até a condição retornar "false"
+        }   
+    ```
 
 - **Do loops:**
-    do {executa}; 
-        while (condição);   ~executa o corpo do "do" pelo menos uma vez e depois testa para a condição do "while", se a condição retornar "false", executa o corpo do "do" de novo
+    ```javascript
+        do {
+            //Executa o código daqui e testa para a condição do "while", se retornar "false" executa de novo
+        } while (condição);   
+    ```
 
 - **For loops:**
-    for (inicia o loop; condição pro loop repetir; atualiza o estado do loop após cada interação){executa}    ~é a mesma coisa que um "While loop" só que mais simples
-
-    ~se eu nõo definir uma condição pro "for" será gerado um loop infinito. Nesse caso, posso usar um "if(){break;}" pra pular fora do loop 
+    ```javascript
+        for (condiçãoDeInícioDoLoop; condiçãoDeRepetição; consequênciaDoLoop) {
+            //Executa o códio daqui
+        }    
+    ```

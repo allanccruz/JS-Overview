@@ -1,16 +1,15 @@
 # Resumo do capítulo
 
-- Definindo uma função:
+- **Definindo uma função:**
+    ```javascript
+        const multiply = function(parâmetro1, parâmetro2) {
+            return parâmetro1 * parâmetro2;
+    }
 
-    const batata = function(parâmetro1, parâmetro2) {
-        return parâmetro1 * parâmetro2;
-}
-
-    const batata = (parâmetro1, parâmetro2) => {
-        return parâmetro1 * parâmetro2;
-}
-    ~não necessáriamente uma função terá parâmetros
-
+        const multiply = (parâmetro1, parâmetro2) => {
+            return parâmetro1 * parâmetro2;
+    }
+    ```
 - Vinculações e Escopos:
     ~vinculações feitas DENTRO de uma função só funcionam dentro dela e não são "vistas" pelo código do lado de fora
 
