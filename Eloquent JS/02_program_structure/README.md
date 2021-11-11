@@ -25,13 +25,13 @@
             //Executa o código daqui
         } else {
             //Executa o código daqui se a condição não for cumprida
-        }
+        };
     ```
 - **While loops:**
     ```javascript
         while (condição) {
             //Executa o código daqui até a condição retornar "false"
-        }   
+        };  
     ```
 
 - **Do loops:**
@@ -45,5 +45,5 @@
     ```javascript
         for (condiçãoDeInícioDoLoop; condiçãoDeRepetição; consequênciaDoLoop) {
             //Executa o códio daqui
-        }    
+        };    
     ```
