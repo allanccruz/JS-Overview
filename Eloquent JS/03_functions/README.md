@@ -19,10 +19,12 @@
 
 - **Definindo uma função dentro de uma variável:**
     ```javascript
+        //Dessa forma a função não tem escopo global e não sofre hoisting.
         const multiply = function(parâmetro1, parâmetro2) {
             return parâmetro1 * parâmetro2;
     };
 
+        //Arrow function:
         const multiply = (parâmetro1, parâmetro2) => {
             return parâmetro1 * parâmetro2;
     };
