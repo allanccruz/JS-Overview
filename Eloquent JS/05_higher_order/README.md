@@ -1,14 +1,17 @@
 # Resumo do capítulo
 
-- O forEach() acessa e executa uma ação para cada elemento de um array (um de cada vez):
-
+- **Usando o método de loop forEach:**
+    ```javascript
     let nomes = ['maria', 'josé', 'joão'];
 
-    nomes.forEach(function(nome) {
+    nomes.forEach(function(nome)) {
      console.log(nome);
-});
+    });
 
-    A função vai ser executada pra cada elemento do array e, a cada interação, o valor do elemento é atribuido à variável passada como parâmetro da função callback, no caso nome.
+    //A função vai ser executada pra cada elemento do array e, a cada interação, o valor do elemento é atribuido à variável passada como parâmetro da função callback, no caso nome.
+    ```
+
+    
 
 - O map() acessa os dados de um array, um por um, e gera um novo array após executar uma ação em cada elemento do array inicial:
 

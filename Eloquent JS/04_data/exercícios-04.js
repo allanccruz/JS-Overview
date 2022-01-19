@@ -33,6 +33,7 @@ function range(start, end, step = 1) {
 
   return array;
 }
+//console.log(range(2,9));
 
 //Função que faz a soma de todos os elementos do array criado acima
 function sum(array) {
@@ -44,6 +45,7 @@ function sum(array) {
 
   return total;
 }
+//console.log(sum(range(2,9)));
 
 /* 
 Exercício 2: Reversing an array
@@ -61,12 +63,9 @@ be useful in more situations? Which one runs faster?
 
 function reverseArray(array) {
   let newArray = [];
+  let arrayPosition = array.length - 1
 
-  for (
-    let arrayPosition = array.length - 1;
-    arrayPosition >= 0;
-    arrayPosition--
-  ) {
+  for (arrayPosition; arrayPosition >= 0; arrayPosition--) {
     newArray.push(array[arrayPosition]);
   }
 
@@ -75,20 +74,20 @@ function reverseArray(array) {
 
 //Trocar o ultimo elemento com o primeiro, o antepenúltimo com o segundo, etc...
 function reverseArrayInPlace(array) {
-  for (
-    let numberOfSwaps = 0;
-    numberOfSwaps < Math.floor(array.length / 2);
-    numberOfSwaps++
-  ) {
+  let numberOfSwaps = 0
+
+  for (numberOfSwaps; numberOfSwaps < Math.floor(array.length / 2); numberOfSwaps++) {
     //Salva o valor do elemento inicial que vai ser trocado numa variável
     let elementToSwap = array[numberOfSwaps];
     //Troca o valor do elemento inicial pelo que está na posição oposta a ele
-    array[numberOfSwaps] = array[array.length - 1 - numberOfSwaps];
+    array[numberOfSwaps] = array[(array.length - 1) - numberOfSwaps];
     //Troca o valor do elemento na posição oposta ao inicial pelo inicial
-    array[array.length - 1 - numberOfSwaps] = elementToSwap;
+    array[(array.length - 1) - numberOfSwaps] = elementToSwap;
   }
+
   return array;
 }
+
 //console.log(reverseArrayInPlace(["A", "B", "C", "D", "E", "F"]))
 //console.log(reverseArray(["A", "B", "C", "D", "E", "F"]))
 
@@ -115,8 +114,9 @@ If you haven’t already, also write a recursive version of nth.
 function arrayToList(array) {
   //Construir a lista de dentro pra fora.
   let list = null;
-
-  for (let counter = array.length - 1; counter >= 0; counter--) {
+  let counter = array.length - 1
+  
+  for (counter; counter >= 0; counter--) {
     let arrayElement = array[counter];
 
     list = {
@@ -132,15 +132,16 @@ function arrayToList(array) {
 
 function listToArray(list) {
   let array = [];
+  let layer = list
 
-  for (let layer = list; layer; layer = layer.rest) {
+  for (layer; layer; layer = layer.rest) {
     array.push(layer.value);
     console.log(array);
   }
   console.log("Resposta:");
   return array;
 }
-//console.log(listToArray(arrayToList([10, 20, 30])));
+console.log(listToArray(arrayToList([10, 20, 30])));
 
 function prepend(element, list) {
   list = {
@@ -153,8 +154,9 @@ function prepend(element, list) {
 
 function nth(list, number) {
   let counter = 0;
+  let layer = list
 
-  for (let layer = list; layer; layer = layer.rest) {
+  for (layer; layer; layer = layer.rest) {
     if (counter === number) {
       return layer.value;
     } else {
